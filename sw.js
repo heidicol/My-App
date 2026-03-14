@@ -1,10 +1,10 @@
-const CACHE_NAME = 'my-finance-v2';
+const CACHE_NAME = 'my-finance-v4';
 const ASSETS = [
-  '/My-Finance-Tracker/my-finance.html',
+  '/My-Finance-Tracker/',
+  '/My-Finance-Tracker/index.html',
   '/My-Finance-Tracker/manifest.json',
   '/My-Finance-Tracker/icon-192.png',
-  '/My-Finance-Tracker/icon-512.png',
-  'https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap'
+  '/My-Finance-Tracker/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -29,7 +29,7 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(cached => {
       return cached || fetch(event.request).catch(() =>
-        caches.match('/My-Finance-Tracker/my-finance.html')
+        caches.match('/My-Finance-Tracker/')
       );
     })
   );
