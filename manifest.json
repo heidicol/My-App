@@ -2,7 +2,7 @@
   "name": "My Finance",
   "short_name": "My Finance",
   "description": "Track your income, expenses and savings — for the whole family.",
-  "start_url": "/My-Finance-Tracker/my-finance.html",
+  "start_url": "/My-Finance-Tracker/",
   "scope": "/My-Finance-Tracker/",
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui", "browser"],
@@ -12,45 +12,31 @@
   "lang": "en-GB",
   "dir": "ltr",
   "categories": ["finance", "productivity"],
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/My-Finance-Tracker/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-192.png",
+      "src": "/My-Finance-Tracker/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "/My-Finance-Tracker/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "/My-Finance-Tracker/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Add Expense",
-      "short_name": "Add",
-      "description": "Jump straight to adding an expense",
-      "url": "/My-Finance-Tracker/my-finance.html#add",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
     }
   ]
 }
