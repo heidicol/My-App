@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="120" height="120" rx="26" fill="#22a55b"/>
+  <!-- Roof -->
+  <polyline points="25,72 60,32 95,72" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Chimney -->
+  <line x1="80" y1="44" x2="80" y2="56" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="76" y1="44" x2="84" y2="44" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Walls -->
+  <polyline points="30,72 30,104 90,104 90,72" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arched door -->
+  <path d="M50,104 L50,84 Q60,74 70,84 L70,104" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left window -->
+  <rect x="34" y="78" width="14" height="11" rx="2" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  <!-- Right window -->
+  <rect x="72" y="78" width="14" height="11" rx="2" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+  <!-- Red heart -->
+  <path d="M60,26 C60,26 53,18 53,22.5 C53,26 56.5,28.5 60,32 C63.5,28.5 67,26 67,22.5 C67,18 60,26 60,26Z" fill="#ef4444"/>
+  <!-- Heart highlight -->
+  <circle cx="56" cy="21" r="2.5" fill="rgba(255,255,255,0.4)"/>
+  <!-- Teal £ dot -->
+  <circle cx="96" cy="100" r="10" fill="#0d9488"/>
+  <text x="96" y="104" font-family="Georgia,serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">£</text>
+</svg>
