@@ -490,7 +490,7 @@
     <div class="savings-vs-bar" id="savings-vs-bar" style="display:none;">
       <div class="savings-vs-labels">
         <span class="savings-vs-label-saved" id="svs-saved-label">£0 saved</span>
-        <span class="savings-vs-label-spent" id="svs-spent-label">£0 spent</span>
+        <span class="savings-vs-label-spent" id="svs-spent-label">£0 outgoing</span>
       </div>
       <div class="savings-vs-track">
         <div class="savings-vs-saved" id="svs-saved-bar" style="width:0%"></div>
@@ -502,7 +502,7 @@
           <div class="savings-vs-item-val green" id="svs-total-saved">£0.00</div>
         </div>
         <div class="savings-vs-item">
-          <div class="savings-vs-item-label">Total expenses</div>
+          <div class="savings-vs-item-label">Total outgoing</div>
           <div class="savings-vs-item-val red" id="svs-total-spent">£0.00</div>
         </div>
         <div class="savings-vs-item">
@@ -519,9 +519,9 @@
     <div class="total-inner">
       <div class="total-left">
         <div class="total-month-badge" id="total-month-badge"></div>
-        <div class="total-label">Total Spent</div>
+        <div class="total-label">Outgoing</div>
         <div class="total-amount" id="total">£0.00</div>
-        <div class="total-count" id="count">No expenses this month</div>
+        <div class="total-count" id="count">No outgoings this month</div>
       </div>
       <div class="total-right">
         <div class="total-year-label" id="year-label"></div>
@@ -908,7 +908,7 @@
     const surplus = income - spendTotal;
     summary.innerHTML = `
       <div class="pie-summary-item"><div class="pie-summary-label">Total income</div><div class="pie-summary-val" style="color:var(--green)">${income > 0 ? fmt(income) : '—'}</div></div>
-      <div class="pie-summary-item"><div class="pie-summary-label">Total spent</div><div class="pie-summary-val">${fmt(spendTotal)}</div></div>
+      <div class="pie-summary-item"><div class="pie-summary-label">Outgoing</div><div class="pie-summary-val">${fmt(spendTotal)}</div></div>
       <div class="pie-summary-item"><div class="pie-summary-label">${surplus >= 0 ? 'Surplus' : 'Overspend'}</div><div class="pie-summary-val ${surplus >= 0 ? 'surplus' : 'deficit'}">${income > 0 ? fmt(Math.abs(surplus)) : '—'}</div></div>
     `;
   }
@@ -986,12 +986,12 @@
     const monthTotal = mExpenses.reduce((s,e) => s+e.amount, 0);
     const n = mExpenses.length;
     document.getElementById('total').textContent = fmt(monthTotal);
-    document.getElementById('count').textContent = n===0?'No expenses this month':n===1?'1 expense this month':n+' expenses this month';
-    document.getElementById('list-label').textContent = MONTHS[CUR_MONTH]+' Expenses ('+n+')';
+    document.getElementById('count').textContent = n===0?'No outgoings this month':n===1?'1 outgoing this month':n+' outgoings this month';
+    document.getElementById('list-label').textContent = MONTHS[CUR_MONTH]+' Outgoings ('+n+')';
     renderBudget(monthTotal); renderPieChart(mExpenses); renderCategoryChart(mExpenses);
     renderMonthlyChart(); renderAnnualCategoryChart(); renderGoals();
     const list = document.getElementById('expense-list');
-    if (!n) { list.innerHTML='<div class="empty-state"><span class="empty-icon">💸</span><p>No expenses yet this month — add your first one above!</p></div>'; return; }
+    if (!n) { list.innerHTML='<div class="empty-state"><span class="empty-icon">💸</span><p>No outgoings yet this month — add your first one above!</p></div>'; return; }
     const sorted = [...mExpenses].sort((a,b) => b.date.localeCompare(a.date));
     list.innerHTML = sorted.map(e => {
       const realIdx = expenses.indexOf(e); const info = cat(e.category);
@@ -1184,7 +1184,7 @@
       document.getElementById('svs-saved-bar').style.width = savedPct + '%';
       document.getElementById('svs-spent-bar').style.width = spentPct + '%';
       document.getElementById('svs-saved-label').textContent = fmt(totalSaved) + ' saved';
-      document.getElementById('svs-spent-label').textContent = fmt(totalExpenses) + ' spent';
+      document.getElementById('svs-spent-label').textContent = fmt(totalExpenses) + ' outgoing';
       document.getElementById('svs-total-saved').textContent = fmt(totalSaved);
       document.getElementById('svs-total-spent').textContent = fmt(totalExpenses);
       const rate = (totalSaved + totalExpenses) > 0 ? Math.round(totalSaved/(totalSaved+totalExpenses)*100) : 0;
